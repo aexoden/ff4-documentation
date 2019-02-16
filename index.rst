@@ -7,3 +7,4 @@ Final Fantasy IV Technical Documentation
    :caption: Contents:
 
    introduction
+   data-structures
