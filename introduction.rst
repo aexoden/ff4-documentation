@@ -25,10 +25,10 @@ non-trivial corrections with either your own code analysis or other compelling
 evidence.
 
 Conventions
-===========
+-----------
 
 Numbers
--------
+^^^^^^^
 
 Unless otherwise specified, all numbers are decimal. Hexadecimal numbers are
 prefixed with a dollar sign: $. Binary numbers are prefixed with a percent
@@ -39,4 +39,4 @@ significant bit, which is numbered zero. The highest bit in a byte, therefore,
 is numbered 7. The remaining bits are numbered according to that pattern. The
 correct value for a byte wherein a single bit is set can be determined by the
 formula :math:`2^x` where :math:`x` is the bit number. (For example, :math:`2^0
-= 1 = $01` and :math:`2^7 = 128 = $80`.
+= 1 = \$01` and :math:`2^7 = 128 = \$80`.
