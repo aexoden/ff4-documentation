@@ -6,15 +6,23 @@ which was originally relased in the United States as Final Fantasy II. At this
 time, the focus is on the US release Rev A (or 1.1). Eventually, however, the
 goal is to document all SNES or SFC versions, and the differences among them.
 
-Information is primary derived from an analysis of the ROM itself, mostly by
-analyzing the code. Some well-known trivial information may be included as
-well, so long as it is not contradicted by the code analysis. In general,
-anecdotes, statistical sampling, or other published technical documentation are
-not used as sources.
+The information in this documentation comes primarily from two sources:
 
-If you do find any errors, please contact `the author <jason@calindora.com>`_.
-Please be prepared to back up any non-trivial corrections with either your own
-code analysis or other compelling evidence.
+- Analysis of the disassembled code from the ROM itself.
+- Observation of how things operate using a debugger.
+
+Some well-known trivial information may be included as well to the extent that
+it is not contradicted by either of the two previous sources. In contrast,
+anecdotes, statistical sampling, or other published technical documentation are
+not used as sources, though they may be used for confirmation or indications of
+areas that merit further research.
+
+Ultimately, I want this to be the most accurate resource regarding the inner
+workings of Final Fantasy IV. Incomplete information is acceptable, but
+incorrect information is not. If you do find any errors, please contact
+`the author <jason@calindora.com>`_. Please be prepared to back up any
+non-trivial corrections with either your own code analysis or other compelling
+evidence.
 
 Conventions
 ===========
