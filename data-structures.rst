@@ -3,6 +3,50 @@ Data Structures
 
 This chapter details the various data structures used by the game.
 
+Events
+------
+
+.. CAUTION::
+   This section is a draft based on current reverse engineering work. Some of
+   the information may be inaccurate or incomplete.
+
+The game uses a simple virtual machine for scripting event sequences. The data
+discovered for this so far exists in bank 12 ($12:XXXX on the system bus).
+There are 256 event numbers. $12:8000 to $12:8200 is a series of 256 2-byte
+indexes. These indexes subsequently indicate the beginning of each event's
+script in the data array extending from $12:8200 to $12:EFFF. The event
+commands have variable lengths depending on the nature of the command.
+
+$FA: Play Song
+^^^^^^^^^^^^^^
+
+:Bytes: 2
+:Parameter 1: Desired track number.
+
+This instruction causes to play the song identified by the given track number.
+
+$FE: Warp to Map
+^^^^^^^^^^^^^^^^
+
+:Bytes: ??
+:Parameter 1: Target map ID.
+:Parameter 2: %DDXXXXXX where DD is the target direction and XXXXXX is the
+              target X coordinate.
+:Parameter 3: Target Y coordinate.
+:Parameter 4: %P??????? where P is the target map plane.
+
+Map IDs from $00 to $FA act as expected and transport the player to that map.
+Maps $FB to $FF have special behavior:
+
+$FF: End Event
+^^^^^^^^^^^^^^
+
+:Bytes: 1
+
+This instruction ends the event. It automatically makes sure the visible player
+field sprite corresponds with the active character.
+
+
 Character Records
 -----------------
 
