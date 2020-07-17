@@ -486,6 +486,11 @@ Bow+Arrow
 This value is mostly capped at 99. Technically, in the single weapon case, it
 is only capped if the base value is 128 or greater.
 
+This value and the next value are an exception to the records at $2000 being a
+strict superset of the records at $1000. In particular, these values in the
+records at $1000 are always the base values. The derived values are only stored
+in the in-battle records at $2000.
+
 $2E: Critical Bonus
 ^^^^^^^^^^^^^^^^^^^
 
