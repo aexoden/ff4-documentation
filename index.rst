@@ -8,3 +8,4 @@ Final Fantasy IV Technical Documentation
 
    introduction
    data-structures
+   rom-map
