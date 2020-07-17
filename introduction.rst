@@ -40,3 +40,21 @@ is numbered 7. The remaining bits are numbered according to that pattern. The
 correct value for a byte wherein a single bit is set can be determined by the
 formula :math:`2^x` where :math:`x` is the bit number. (For example, :math:`2^0
 = 1 = \$01` and :math:`2^7 = 128 = \$80`.
+
+Addresses
+^^^^^^^^^
+
+All addresses are given as if they were being accessed on the SNES system bus.
+Full 24-bit addresses are given as $BB:XXXX where BB is the bank and XXXX is
+the address within that bank.
+
+When accessing an actual ROM image outside of an SNES system, these addresses
+should be converted according to the following formula:
+
+``(bank * $10000) // 2 + (address - $8000)``
+
+If for whatever reason, the ROM is headered, an additional $200 bytes should
+be added for the header.
+
+For example, $12:8200 corresponds to $090200 in an unheadered ROM image and
+$13:EF00 corresponds to $09EF00.
