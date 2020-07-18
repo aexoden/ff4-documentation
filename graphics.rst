@@ -38,6 +38,9 @@ These four bits are extracted, shifted to the correct location, and combined
 with the previously-specified bits for the tile to determine the final index
 into the palette.
 
+The tables for the overworld and underworld are both 8192 bytes each, but the
+table for the moon is only 5056 bytes (158 tiles instead of 256).
+
 The palette data itself is standard SNES palette data, loaded from the offset
 listed in the following table:
 
