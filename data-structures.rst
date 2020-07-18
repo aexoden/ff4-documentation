@@ -28,7 +28,7 @@ This instruction causes to play the song identified by the given track number.
 $FE: Warp to Map
 ^^^^^^^^^^^^^^^^
 
-:Bytes: ??
+:Bytes: \?
 :Parameter 1: Target map ID.
 :Parameter 2: %DDXXXXXX where DD is the target direction and XXXXXX is the
               target X coordinate.

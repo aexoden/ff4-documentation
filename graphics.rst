@@ -7,6 +7,12 @@ graphical data used in the game.
 Outdoor Maps
 ------------
 
+Outdoor maps are composed from a set of 128 16x16 composed tiles, each
+created by drawing from a pool of 256 8x8 base tiles.
+
+Base Tiles
+~~~~~~~~~~
+
 The outdoor maps are implemented via mode 7, so each pixel is represented by a
 single byte, which directly indexes the palette data in CG-RAM.
 
@@ -53,3 +59,23 @@ Moon       $14:8A00
 ========== ========
 
 Each palette consists of 128 bytes, making up 64 colors.
+
+Composed Tiles
+~~~~~~~~~~~~~~
+
+The 16x16 composed tiles are composed from the 8x8 tiles via the data in the
+following tables:
+
+========== ========
+Map        Address
+========== ========
+Overworld  $14:8000
+Underworld $14:8200
+Moon       $14:8400
+========== ========
+
+Each 512 byte block is actually composed of four separate 128-byte arrays. The
+four arrays, in order, specify the tiles to use in the upper left, upper right,
+lower left and lower right segments of the composed tile, in that order. In
+other words, the first 128 bytes determine the upper left tile for each of the
+128 composed tiles, and so on.
