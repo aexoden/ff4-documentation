@@ -21,7 +21,7 @@
 
 project = 'Final Fantasy IV Technical Documentation'
 author = 'Jason Lynch'
-copyright = '2019, Jason Lynch (Unlicense)'
+copyright = '2019, Jason Lynch (CC0)'
 
 
 # The short X.Y version
