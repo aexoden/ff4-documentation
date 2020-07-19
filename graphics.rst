@@ -79,3 +79,39 @@ four arrays, in order, specify the tiles to use in the upper left, upper right,
 lower left and lower right segments of the composed tile, in that order. In
 other words, the first 128 bytes determine the upper left tile for each of the
 128 composed tiles, and so on.
+
+Tilemaps
+~~~~~~~~
+
+The tilemaps for the outdoor maps are stored in a slightly compressed form at
+the following addresses:
+
+========== =========== ==================
+Map        Row Offsets Compressed Tilemap
+========== =========== ==================
+Overworld  $16:8000    $16:8480
+Underworld $16:8200    $16:C480
+Moon       $16:8400    $16:E180
+========== =========== ==================
+
+The row offset data is a series of 16-bit offsets for each row of tiles,
+allowing one to index directly to a particular row (which allows the game to
+avoid loading all rows into memory at once, as that would be extremely
+expensive in terms of memory usage.
+
+The actual compressed tilemap data is a mostly basic run-length encoding scheme.
+If the high bit of the value is not set, the value is directly copied to the
+tilemap, except potentially for the values of $00, $10, $20 and $30. In those
+cases, if the map is the overworld, a four byte sequence will instead be
+written. The first byte in the sequence is the specified value. The following
+three bytes are equal to $70 plus the value divided by 16 and multiplied by 3
+plus either 0, 1 or 2.
+
+If the high bit of the value is set, the low seven bits determine the tile
+number, and the following byte is the number of tiles to write minus one. (This
+allows a value of $FF, for instance, to encode a full row of 256 tiles.)
+
+All tile numbers refer to the 16x16 composed tiles.
+
+Each row of data in the compressed tilemap is additionally terminated with a
+single $FF.
