@@ -4,6 +4,30 @@ Graphics
 This chapter discusses the location and formats of the various forms of
 graphical data used in the game.
 
+Title Screen
+------------
+
+The title screen is a simple static image displayed at the start of the game. Do
+note that the title screen in the original Japanese release has some form of
+animation. That is not currently documented here.
+
+Tiles
+~~~~~
+
+The title screen tile data is stored with 4 bits per pixel at $08:C000. There is
+room for 256 tiles, though not all 256 are used in this release.
+
+Tilemap
+~~~~~~~
+
+A standard SNES tilemap is stored in the 2048 bytes starting at $08:E000. The
+data is sufficient to render a 256x256 image.
+
+Palette
+~~~~~~~
+
+The eight 16-color palettes used by the screen are stored at $08:E800.
+
 Outdoor Maps
 ------------
 
