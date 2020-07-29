@@ -139,3 +139,20 @@ All tile numbers refer to the 16x16 composed tiles.
 
 Each row of data in the compressed tilemap is additionally terminated with a
 single $FF.
+
+Animation
+~~~~~~~~~
+
+There are two classes of animated outdoor tiles: ocean tiles and waterfall
+tiles. Both of these are animated in similar fashions, with custom code directly
+manipulating the tiles as stored in RAM.
+
+For the ocean tiles, every other frame, a row selected based on a frame counter
+and the data table at $00:8E8C is rotated to the right, with each pixel moving
+once to the right, except for the final pixel, which is rotated back to the far
+left. Within the tiles, the ocean tiles make up tiles $80 through $83.
+
+For the waterfall tiles, once per frame, a column selected via the frame counter
+and the data table at $00:8E7C is rotated downward, though the process is
+repeated so each pixel moves two spots per frame. The waterfall tiles range from
+$7A to $7D.
