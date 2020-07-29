@@ -4,6 +4,42 @@ Graphics
 This chapter discusses the location and formats of the various forms of
 graphical data used in the game.
 
+Field Sprites
+-------------
+
+Field sprites are those used on the field. In particular, they are generally
+used to display the player and the NPCs.
+
+Player
+~~~~~~
+
+The field sprites for party members are made up of several components. First,
+the actual graphical data is stored in $300 byte arrays at $1B:8000. Each sheet
+is composed of 32 8x8 tiles. The data is stored with 3 bits per pixel.
+
+These sheets are composed into 16 different frames using the OAM flags stored at
+$15:C0C4. Each frame has eight bytes of data, where the even bytes are the tile
+numbers for the upper left, upper right, lower left and lower right component
+tiles, respectively, and the odd bytes are the tile flags for the same tiles.
+In the default data, the flags are used to set the horizontal flip bit if
+appropriate and to set the priority for each tile to 2.
+
+The coordinates for the four tiles of the player sprite are determined by the
+data at $15:C0B4, which consists of four bytes per tile (corresponding to the
+full OAM entry). Only the X and Y coordinates are set, with both the flags and
+tile bytes being set to zero. Note that the base coordinates for the player
+sprite are 112, 109, which is neither centered nor exactly aligned with a tile
+boundary. In addition, on the second frame of horizontal movement, the Y
+coordinate is reduced further by one.
+
+The palette for each class's sprite is stored in the array at $15:B2FA. Each
+class receives one byte, which determines which of the four player sprite
+palettes to use.
+
+The palettes themselves are stored at $0D:8000, which consists of four separate
+eight color palettes, with each palette potentially being shared by multiple
+characters (only the paladin Cecil palette is unique).
+
 Title Screen
 ------------
 
