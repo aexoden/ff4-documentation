@@ -9,4 +9,5 @@ Final Fantasy IV Technical Documentation
    introduction
    data-structures
    graphics
+   versions
    rom-map

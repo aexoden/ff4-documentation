@@ -58,3 +58,6 @@ be added for the header.
 
 For example, $12:8200 corresponds to $090200 in an unheadered ROM image and
 $13:EF00 corresponds to $09EF00.
+
+Unless otherwise specified, all addresses refer to USA Rev 1. This is important
+when discussing changes between versions, where offsets have shifted.
