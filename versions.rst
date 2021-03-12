@@ -40,12 +40,10 @@ When entering battle, code was added to the routine at $03:8929 to reset the
 item ID and count in both the field and battle inventories to zero if the item
 count is zero.
 
-The motivation for this change is not clear. It does mean that if the player
-puts zero of an item in their inventory via the item duplication glitch, the
-value will be reset upon entering battle. However, it does not prevent the
-glitch in the first place, nor does it present a significant barrier to using
-it. In addition, the ID and count were already reset at the end of battle, so
-so any important behavior change would be limited to something done in battle.
+The primary effect of this change is to prevent the player from being able to
+duplicate consumables using the out-of-battle technique that uses the treasure
+overflow screen. It does nothing, however, to prevent the more common method
+used in battle to duplicate weapons.
 
 Twin Mimic Glitch
 ~~~~~~~~~~~~~~~~~
